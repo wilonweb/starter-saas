@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SaaS-Kit
 
-## Getting Started
+🚧 **En cours de construction** : ce projet a pour but de créer un **starter SaaS** réutilisable, commençant par une **UI d’abonnement avec Notion et Stripe**.
 
-First, run the development server:
+## 🎯 Objectif
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* Implémenter une **UI d’inscription avec Notion** (OAuth).
+* Mettre en place un **système d’abonnement** avec Stripe.
+* Créer une base réutilisable pour mes futurs projets SaaS (YT→GPT→Notion, CRM Notion, Scraper GPT, etc.).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies prévues
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Next.js** (frontend + API routes)
+* **TypeScript** (robustesse)
+* **Notion API** (authentification OAuth + intégration de données)
+* **Stripe** (paiement et abonnements)
+* **Postgres / Supabase** (stockage utilisateurs et abonnements)
+* **Prisma** (ORM pour Postgres)
+* **Docker** (environnement portable)
+* **Vercel / Render** (déploiement rapide)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*(liste évolutive, on ajoutera au fur et à mesure)*
 
-## Learn More
+## 📅 Plan par étapes
 
-To learn more about Next.js, take a look at the following resources:
+1. **Auth Notion** : bouton “S’inscrire avec Notion”, stockage du token.
+2. **Stripe** : paiement et gestion des abonnements.
+3. **DB** : relier utilisateur ↔ abonnement ↔ notion\_token.
+4. **Dashboard minimal** : voir son statut d’abonnement.
+5. **Brancher pipeline YT→GPT→Notion** comme premier “produit SaaS”.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Journal d’apprentissage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+À chaque étape réussie, un petit quiz perso pour valider ce que j’ai appris.
 
-## Deploy on Vercel
+### Exemple : Auth Notion ✅
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* ❓ Qu’est-ce qu’un **OAuth redirect URI** ?
+* ❓ Que stocke-t-on en base après un login OAuth ?
+* ❓ Quelle est la différence entre un `access_token` et un `refresh_token` ?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*(je remplirai ces quiz au fur et à mesure pour ancrer l’apprentissage)*
+
+---
+
+👉 Suggestions bonus si tu veux aller plus loin :
+
+* Ajouter un **schéma d’arbo du projet** (même provisoire).
+* Créer une section **“Concepts appris”** que tu mets à jour (style mini-fiche de révision).
+* Mettre une **roadmap en cases à cocher** pour suivre ta progression.
+
+---
+
+## Les commandes DB
+
+pnpm db:dev              # lance Postgres (docker)
+pnpm db:generate
+pnpm db:migrate          # prisma migrate dev --name init
+pnpm db:studio

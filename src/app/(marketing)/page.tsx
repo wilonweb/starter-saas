@@ -4,17 +4,10 @@ export default function Home() {
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold">Starter-SaaS</h1>
-      <p className="mt-2 opacity-80">Auth Notion → Dashboard</p>
-
+      <p className="mt-2">Auth Notion → Stripe (bientôt) → Dashboard</p>
       <div className="mt-6">
         <SignupWithNotion />
       </div>
-
-      {/* Debug rapide si besoin */}
-      <p className="mt-6 text-sm">
-        Si le bouton ne marche pas, teste{" "}
-        <a className="underline" href="/api/auth/notion">/api/auth/notion</a>.
-      </p>
     </main>
   );
 }
