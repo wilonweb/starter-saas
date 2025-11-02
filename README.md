@@ -2,6 +2,15 @@
 
 🚧 **En cours de construction** : ce projet a pour but de créer un **starter SaaS** réutilisable, commençant par une **UI d’abonnement avec Notion et Stripe**.
 
+
+**Démmarer le projet**
+ Lancer Docker Desktop 
+ `docker compose up -d db` puis `npm run dev`
+
+Quand tu modifies la DB → `npx prisma migrate dev && npx prisma generate`.
+
+Pour explorer la DB → npx prisma studio.
+
 ## 🎯 Objectif
 
 * Implémenter une **UI d’inscription avec Notion** (OAuth).
