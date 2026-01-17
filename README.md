@@ -1,68 +1,46 @@
-# SaaS-Kit
+# SaaS Starter Kit
 
-🚧 **En cours de construction** : ce projet a pour but de créer un **starter SaaS** réutilisable, commençant par une **UI d’abonnement avec Notion et Stripe**.
+MVP-friendly starter based on Next.js, Prisma, and Stripe. The goal is to ship fast with a clean base, then harden later.
 
+## Quick start
+1. Install deps: `npm install`
+2. Start database: `docker compose up -d db`
+3. Run migrations: `npm run db:migrate`
+4. Start dev server: `npm run dev`
 
-**Démmarer le projet**
- Lancer Docker Desktop 
- `docker compose up -d db` puis `npm run dev`
+Open http://localhost:3000
 
-Quand tu modifies la DB → `npx prisma migrate dev && npx prisma generate`.
+## Env
+Create or update `.env` and set at least:
+- `DATABASE_URL`
 
-Pour explorer la DB → npx prisma studio.
+## Scripts
+- `npm run dev` start dev server
+- `npm run build` build for production
+- `npm run start` start production server
+- `npm run lint` lint code
+- `npm run typecheck` TypeScript check
+- `npm run test:smoke` basic checks (lint + typecheck)
+- `npm run db:dev` start Postgres via Docker
+- `npm run db:migrate` run Prisma migrations
+- `npm run db:generate` generate Prisma client
+- `npm run db:studio` open Prisma Studio
 
-## 🎯 Objectif
+## Project structure
+- `src/app` Next.js app router
+- `prisma` Prisma schema and migrations
+- `public` static assets
 
-* Implémenter une **UI d’inscription avec Notion** (OAuth).
-* Mettre en place un **système d’abonnement** avec Stripe.
-* Créer une base réutilisable pour mes futurs projets SaaS (YT→GPT→Notion, CRM Notion, Scraper GPT, etc.).
+## Manual test scenarios
+See `scenarion-test.md` for user flows to validate the MVP.
 
-## 🛠️ Technologies prévues
+## MVP scope
+- Landing + marketing pages
+- Basic auth flow (placeholder for future providers)
+- Stripe subscription flow (placeholder for future billing)
 
-* **Next.js** (frontend + API routes)
-* **TypeScript** (robustesse)
-* **Notion API** (authentification OAuth + intégration de données)
-* **Stripe** (paiement et abonnements)
-* **Postgres / Supabase** (stockage utilisateurs et abonnements)
-* **Prisma** (ORM pour Postgres)
-* **Docker** (environnement portable)
-* **Vercel / Render** (déploiement rapide)
+## Roadmap (short)
+- Notion OAuth
+- Billing end-to-end
+- Minimal dashboard
 
-*(liste évolutive, on ajoutera au fur et à mesure)*
-
-## 📅 Plan par étapes
-
-1. **Auth Notion** : bouton “S’inscrire avec Notion”, stockage du token.
-2. **Stripe** : paiement et gestion des abonnements.
-3. **DB** : relier utilisateur ↔ abonnement ↔ notion\_token.
-4. **Dashboard minimal** : voir son statut d’abonnement.
-5. **Brancher pipeline YT→GPT→Notion** comme premier “produit SaaS”.
-
-## 📝 Journal d’apprentissage
-
-À chaque étape réussie, un petit quiz perso pour valider ce que j’ai appris.
-
-### Exemple : Auth Notion ✅
-
-* ❓ Qu’est-ce qu’un **OAuth redirect URI** ?
-* ❓ Que stocke-t-on en base après un login OAuth ?
-* ❓ Quelle est la différence entre un `access_token` et un `refresh_token` ?
-
-*(je remplirai ces quiz au fur et à mesure pour ancrer l’apprentissage)*
-
----
-
-👉 Suggestions bonus si tu veux aller plus loin :
-
-* Ajouter un **schéma d’arbo du projet** (même provisoire).
-* Créer une section **“Concepts appris”** que tu mets à jour (style mini-fiche de révision).
-* Mettre une **roadmap en cases à cocher** pour suivre ta progression.
-
----
-
-## Les commandes DB
-
-pnpm db:dev              # lance Postgres (docker)
-pnpm db:generate
-pnpm db:migrate          # prisma migrate dev --name init
-pnpm db:studio
