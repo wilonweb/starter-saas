@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "test:smoke": "npm run lint && npm run typecheck",
+    "test": "npm run test:smoke",
     "format": "prettier --write .",
     "db:dev": "docker compose up -d db",
     "db:migrate": "prisma migrate dev",
